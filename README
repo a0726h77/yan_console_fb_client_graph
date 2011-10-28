@@ -1,0 +1,20 @@
+#
+# This is a comand line fasebook publisher 
+#
+# It's using Facebook Graph API
+#
+
+
+To use :
+
+1. Use browser to login and grant permission for this script
+
+   -> https://www.facebook.com/dialog/oauth?client_id=120190928021712&redirect_uri=http://www.facebook.com/connect/login_success.html&scope=user_events,friends_events,create_event,publish_stream,manage_pages,user_groups,friends_groups,publish_stream,manage_pages
+
+
+2. Custom yoru setting
+
+  $ mv dot_yan_console_f_b_client.cfg ~/.yan_console_f_b_client.cfg
+
+
+3. python main.py -h
