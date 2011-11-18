@@ -12,7 +12,7 @@ import urllib2
 import re
 from configobj import ConfigObj
 #import time
-import json
+import simplejson
 
 class myFB():
     def __init__(self):
@@ -65,7 +65,7 @@ class myFB():
         connection = urllib2.urlopen(url)
         uid = connection.read()
     
-        return json.loads(uid)['id']
+        return simplejson.loads(uid)['id']
 
     def statusCreate(self, uid, message):
         form_fields = {
