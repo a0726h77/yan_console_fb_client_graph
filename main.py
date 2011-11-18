@@ -25,11 +25,16 @@ class myFB():
         self.opener = urllib2.build_opener( urllib2.HTTPCookieProcessor() )
         urllib2.install_opener( self.opener )
 
-        print 'Login ...'
-        self.form_id = self.login(email, passwd)
-        
-        print 'Get token ...'
-        self.token = self.getToken()
+        if config['fb_token']:
+                print 'Token found ...'
+		print config['fb_token']
+                self.token = config['fb_token']
+        else: 
+                print 'Login ...'
+                self.form_id = self.login(email, passwd)
+                
+                print 'Get token ...'
+                self.token = self.getToken()
 
     def login(self, email, passwd):
         #login_url = 'https://login.facebook.com/login.php?m=m&refsrc=http://m.facebook.com/index.php&fbb=rd88e1687&refid=8'
@@ -52,7 +57,7 @@ class myFB():
         #time.sleep(2)
         connection.read()
 
-	url = connection.url
+        url = connection.url
         #print url
         p = re.compile('access_token=([a-zA-Z0-9]+)&')
         token = p.findall(url)[0]
